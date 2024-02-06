@@ -122,9 +122,9 @@ const ContactDrawer = ({ open, handleDrawerClose, contact, loading }) => {
 						></Avatar>
 
 						<Typography>{contact.name}</Typography>
-						<Typography>
+						{/* <Typography>
 							<Link href={`tel:${contact.number}`}>{contact.number}</Link>
-						</Typography>
+						</Typography> */}
 						<Button
 							variant="outlined"
 							color="primary"

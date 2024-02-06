@@ -195,6 +195,7 @@ const TicketListItem = ({ ticket }) => {
 									className={classes.closedBadge}
 									badgeContent={"closed"}
 									color="primary"
+									overlap="rectangular"
 								/>
 							)}
 							{ticket.lastMessage && (
@@ -238,6 +239,7 @@ const TicketListItem = ({ ticket }) => {
 								classes={{
 									badge: classes.badgeStyle,
 								}}
+								overlap="rectangular"
 							/>
 						</span>
 					}

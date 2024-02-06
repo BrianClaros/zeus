@@ -42,7 +42,7 @@ const createContact = async (
   const number = validNumber;
 
   const contactData = {
-    name: `${number}`,
+    name: "Nuevo contacto",
     number,
     profilePicUrl,
     isGroup: false

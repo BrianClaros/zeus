@@ -81,7 +81,7 @@ const MainListItems = (props) => {
         to="/connections"
         primary={i18n.t("mainDrawer.listItems.connections")}
         icon={
-          <Badge badgeContent={connectionWarning ? "!" : 0} color="error">
+          <Badge overlap="rectangular" badgeContent={connectionWarning ? "!" : 0} color="error">
             <SyncAltIcon />
           </Badge>
         }
@@ -92,16 +92,16 @@ const MainListItems = (props) => {
         icon={<WhatsAppIcon />}
       />
 
-      <ListItemLink
+      {/* <ListItemLink
         to="/contacts"
         primary={i18n.t("mainDrawer.listItems.contacts")}
         icon={<ContactPhoneOutlinedIcon />}
-      />
-      <ListItemLink
+      /> */}
+      {/* <ListItemLink
         to="/quickAnswers"
         primary={i18n.t("mainDrawer.listItems.quickAnswers")}
         icon={<QuestionAnswerOutlinedIcon />}
-      />
+      /> */}
       <Can
         role={user.profile}
         perform="drawer-admin-items:view"

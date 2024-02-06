@@ -14,6 +14,7 @@ const toastError = err => {
 			});
 		}
 	} else {
+		console.log(err)
 		toast.error("An error occurred!");
 	}
 };

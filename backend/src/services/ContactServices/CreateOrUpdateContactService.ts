@@ -30,6 +30,8 @@ const CreateOrUpdateContactService = async ({
 
   contact = await Contact.findOne({ where: { number } });
 
+  console.log("CreateOrUpdateContactService", contact)
+
   if (contact) {
     contact.update({ profilePicUrl });
 
@@ -38,8 +40,9 @@ const CreateOrUpdateContactService = async ({
       contact
     });
   } else {
+    const newContactName = `Nuevo contacto ${number.slice(-4)}`;
     contact = await Contact.create({
-      name,
+      name: newContactName,
       number,
       profilePicUrl,
       email,

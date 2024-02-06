@@ -83,6 +83,7 @@ const ContactModal = ({ open, onClose, contactId, initialValues, onSave }) => {
 		const fetchContact = async () => {
 			if (initialValues) {
 				setContact(prevState => {
+					prevState.number = prevState.number.split(-4);
 					return { ...prevState, ...initialValues };
 				});
 			}
@@ -92,6 +93,7 @@ const ContactModal = ({ open, onClose, contactId, initialValues, onSave }) => {
 			try {
 				const { data } = await api.get(`/contacts/${contactId}`);
 				if (isMounted.current) {
+					data.number = "******" + data.number.slice(-4);
 					setContact(data);
 				}
 			} catch (err) {
@@ -170,6 +172,7 @@ const ContactModal = ({ open, onClose, contactId, initialValues, onSave }) => {
 									placeholder="5513912344321"
 									variant="outlined"
 									margin="dense"
+									disabled
 								/>
 								<div>
 									<Field

@@ -45,7 +45,7 @@ const ListTicketsService = async ({
     {
       model: Contact,
       as: "contact",
-      attributes: ["id", "name", "number", "profilePicUrl"]
+      attributes: ["id", "name", "profilePicUrl"]
     },
     {
       model: Queue,

@@ -24,16 +24,20 @@ const ModalImageCors = ({ imageUrl }) => {
 	useEffect(() => {
 		if (!imageUrl) return;
 		const fetchImage = async () => {
+			console.log("imageUrl", imageUrl)
 			const { data, headers } = await api.get(imageUrl, {
 				responseType: "blob",
 			});
+			
 			const url = window.URL.createObjectURL(
 				new Blob([data], { type: headers["content-type"] })
 			);
+			console.log("url", url)
 			setBlobUrl(url);
 			setFetching(false);
 		};
-		fetchImage();
+		fetchImage()
+			.catch((error) => console.log(error))
 	}, [imageUrl]);
 
 	return (

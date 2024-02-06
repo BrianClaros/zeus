@@ -188,16 +188,16 @@ const NotificationsPopOver = () => {
 
 	return (
 		<>
-			<IconButton
+			{/* <IconButton
 				onClick={handleClick}
 				ref={anchorEl}
 				aria-label="Open Notifications"
 				color="inherit"
 			>
-				<Badge badgeContent={notifications.length} color="secondary">
+				<Badge overlap="rectangular" badgeContent={notifications.length} color="secondary">
 					<ChatIcon />
 				</Badge>
-			</IconButton>
+			</IconButton> */}
 			<Popover
 				disableScrollLock
 				open={isOpen}

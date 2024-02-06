@@ -20,9 +20,13 @@ const CreateContactService = async ({
   email = "",
   extraInfo = []
 }: Request): Promise<Contact> => {
+
+  console.log("CreateContactService", name, number, email, extraInfo)
   const numberExists = await Contact.findOne({
     where: { number }
   });
+
+  console.log("CreateContactService::existsnumber", numberExists)
 
   if (numberExists) {
     throw new AppError("ERR_DUPLICATED_CONTACT");

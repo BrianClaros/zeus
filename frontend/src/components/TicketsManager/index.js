@@ -254,6 +254,7 @@ const TicketsManager = () => {
                 className={classes.badge}
                 badgeContent={openCount}
                 color="primary"
+                overlap="rectangular"
               >
                 {i18n.t("ticketsList.assignedHeader")}
               </Badge>
@@ -266,6 +267,7 @@ const TicketsManager = () => {
                 className={classes.badge}
                 badgeContent={pendingCount}
                 color="secondary"
+                overlap="rectangular"
               >
                 {i18n.t("ticketsList.pendingHeader")}
               </Badge>

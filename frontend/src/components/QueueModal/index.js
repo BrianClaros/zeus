@@ -200,7 +200,7 @@ const QueueModal = ({ open, onClose, queueId }) => {
 										type="greetingMessage"
 										multiline
 										inputRef={greetingRef}
-										rows={5}
+										minRows={5}
 										fullWidth
 										name="greetingMessage"
 										error={

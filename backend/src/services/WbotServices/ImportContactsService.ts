@@ -16,15 +16,15 @@ const ImportContactsService = async (userId:number): Promise<void> => {
     logger.error(`Could not get whatsapp contacts from phone. Err: ${err}`);
   }
 
+  console.log("ImportContactsService::phoneContacts", phoneContacts)
+
   if (phoneContacts) {
     await Promise.all(
       phoneContacts.map(async ({ number, name }) => {
         if (!number) {
           return null;
         }
-        if (!name) {
-          name = number;
-        }
+        name = `Nuevo contacto ${number.slice(-4)}`;
 
         const numberExists = await Contact.findOne({
           where: { number }
