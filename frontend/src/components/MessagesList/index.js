@@ -360,8 +360,12 @@ const MessagesList = ({ ticketId, isGroup }) => {
 
   useEffect(() => {
     const socket = openSocket();
-
-    socket.on("connect", () => socket.emit("joinChatBox", ticketId));
+    console.log("socket:", socket);
+    socket.on("connect", () => {
+      console.log("ticketID", ticketId)
+      socket.emit("joinChatBox", ticketId)
+    });
+    
 
     socket.on("appMessage", (data) => {
       if (data.action === "create") {

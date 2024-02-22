@@ -39,7 +39,8 @@ const verifyContact = async (msgContact: WbotContact): Promise<Contact> => {
     name: msgContact.name || msgContact.pushname || msgContact.id.user,
     number: msgContact.id.user,
     profilePicUrl,
-    isGroup: msgContact.isGroup
+    isGroup: msgContact.isGroup,
+    isMyContact: msgContact.isMyContact
   };
 
   const contact = CreateOrUpdateContactService(contactData);
@@ -405,6 +406,7 @@ const handleMessage = async (
     } */
   } catch (err) {
     Sentry.captureException(err);
+    console.log(`Error handling whatsapp message: Err: `, err)
     logger.error(`Error handling whatsapp message: Err: ${err}`);
   }
 };

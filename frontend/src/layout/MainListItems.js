@@ -97,11 +97,11 @@ const MainListItems = (props) => {
         primary={i18n.t("mainDrawer.listItems.contacts")}
         icon={<ContactPhoneOutlinedIcon />}
       /> */}
-      {/* <ListItemLink
+      <ListItemLink
         to="/quickAnswers"
         primary={i18n.t("mainDrawer.listItems.quickAnswers")}
         icon={<QuestionAnswerOutlinedIcon />}
-      /> */}
+      />
       <Can
         role={user.profile}
         perform="drawer-admin-items:view"

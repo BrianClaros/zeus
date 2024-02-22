@@ -20,15 +20,20 @@ const ImportContactsService = async (userId:number): Promise<void> => {
 
   if (phoneContacts) {
     await Promise.all(
-      phoneContacts.map(async ({ number, name }) => {
+      phoneContacts.map(async ({ number, name, isMyContact }) => {
         if (!number) {
           return null;
         }
-        name = `Nuevo contacto ${number.slice(-4)}`;
+        name = isMyContact ? name : `Nuevo contacto ${number.slice(-4)}`;
 
         const numberExists = await Contact.findOne({
           where: { number }
         });
+
+        if (numberExists && numberExists.name != name && isMyContact) {
+          console.log("Nombre de contacto actualizado: ", numberExists.name, name)
+          numberExists.update({ name });
+        } 
 
         if (numberExists) return null;
 

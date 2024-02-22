@@ -40,6 +40,11 @@ const ListContactsService = async ({
 
   const hasMore = count > offset + contacts.length;
 
+  contacts.forEach((contact) => {
+    contact.number = "******" + contact.number.slice(-4)
+    return contact;
+  });
+
   return {
     contacts,
     count,

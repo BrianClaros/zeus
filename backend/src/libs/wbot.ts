@@ -56,9 +56,10 @@ export const initWbot = async (whatsapp: Whatsapp): Promise<Session> => {
         }
       });
 
-      wbot.initialize();
+      wbot.initialize().catch((error) => console.log("error wsp", error))
 
       wbot.on("qr", async qr => {
+        console.log("qr", qr);
         logger.info("Session:", sessionName);
         qrCode.generate(qr, { small: true });
         await whatsapp.update({ qrcode: qr, status: "qrcode", retries: 0 });

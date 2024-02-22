@@ -13,6 +13,7 @@ interface Request {
   email?: string;
   profilePicUrl?: string;
   extraInfo?: ExtraInfo[];
+  isMyContact: boolean;
 }
 
 const CreateOrUpdateContactService = async ({
@@ -21,7 +22,8 @@ const CreateOrUpdateContactService = async ({
   profilePicUrl,
   isGroup,
   email = "",
-  extraInfo = []
+  extraInfo = [],
+  isMyContact = false
 }: Request): Promise<Contact> => {
   const number = isGroup ? rawNumber : rawNumber.replace(/[^0-9]/g, "");
 
@@ -40,7 +42,7 @@ const CreateOrUpdateContactService = async ({
       contact
     });
   } else {
-    const newContactName = `Nuevo contacto ${number.slice(-4)}`;
+    const newContactName = isMyContact ? name : `Nuevo contacto ${number.slice(-4)}`;
     contact = await Contact.create({
       name: newContactName,
       number,

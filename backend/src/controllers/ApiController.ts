@@ -45,7 +45,8 @@ const createContact = async (
     name: "Nuevo contacto",
     number,
     profilePicUrl,
-    isGroup: false
+    isGroup: false,
+    isMyContact: false
   };
 
   const contact = await CreateOrUpdateContactService(contactData);

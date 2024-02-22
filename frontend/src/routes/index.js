@@ -41,12 +41,12 @@ const Routes = () => {
               />
               <Route exact path="/contacts" component={Contacts} isPrivate />
               <Route exact path="/users" component={Users} isPrivate />
-              {/* <Route
+              <Route
                 exact
                 path="/quickAnswers"
                 component={QuickAnswers}
                 isPrivate
-              /> */}
+              />
               <Route exact path="/Settings" component={Settings} isPrivate />
               <Route exact path="/Queues" component={Queues} isPrivate />
             </LoggedInLayout>
